@@ -1,0 +1,95 @@
+<!DOCTYPE html><html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semangat Sayang ❤️</title>
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: Arial, sans-serif;
+}body{ height:100vh; overflow:hidden; background:linear-gradient(135deg,#ff758c,#ff7eb3,#ffd86f); display:flex; justify-content:center; align-items:center; text-align:center; }
+
+.container{ background:rgba(255,255,255,0.9); width:90%; max-width:450px; padding:30px; border-radius:25px; box-shadow:0 10px 30px rgba(0,0,0,0.2); animation:fadeIn 1.5s ease; position:relative; z-index:2; }
+
+h1{ color:#ff2e63; margin-bottom:15px; }
+
+p{ color:#444; line-height:1.6; margin-bottom:20px; }
+
+button{ display:block; width:100%; margin:10px 0; padding:12px; border:none; border-radius:30px; background:#ff2e63; color:white; font-size:16px; cursor:pointer; transition:0.3s; }
+
+button:hover{ transform:scale(1.05); background:#e91e63; }
+
+.hidden{ display:none; margin-top:20px; font-weight:bold; color:#ff2e63; }
+
+.heart{ position:absolute; font-size:20px; animation:floatUp 5s linear infinite; }
+
+@keyframes floatUp{ 0%{ transform:translateY(100vh) scale(0); opacity:1; } 100%{ transform:translateY(-100px) scale(1.5); opacity:0; } }
+
+@keyframes fadeIn{ from{opacity:0; transform:scale(0.7);} to{opacity:1; transform:scale(1);} }
+
+.shake{ animation:shake 0.5s; }
+
+@keyframes shake{ 0%{transform:translateX(0);} 25%{transform:translateX(-5px);} 50%{transform:translateX(5px);} 75%{transform:translateX(-5px);} 100%{transform:translateX(0);} } </style>
+
+</head>
+<body><div class="container" id="box">
+  <h1>Hai Sayang ❤️</h1>
+  <p>
+    Kalau hari ini sayangg capee, sedii, atau banyak pikirannn...
+    ingat yaa sayangg hebatt bangedd dan sayangg tidaa sendirian ✨
+  </p><button onclick="showMessage1()">Klik kalau sayangg capee 😞</button> <button onclick="showMessage2()">Klik kalau sayangg sedii 😢</button> <button onclick="showMessage3()">Klik kalau sayangg butuh peyukann 🤗</button> <button onclick="showMessage4()">Klik kalau sayangg rindu kikyy ehee🤍</button>
+
+  <div class="hidden" id="message"></div>
+</div><script>
+const msg = document.getElementById('message');
+const box = document.getElementById('box');
+
+function animateBox(){
+  box.classList.add('shake');
+  setTimeout(()=>{
+    box.classList.remove('shake');
+  },500);
+}
+
+function showMessage1(){
+  msg.style.display='block';
+  msg.innerHTML='Istirahattt yaaa sayang🥺 sayangg udaa berjuang sejauh ini dan kikyy bangga banget sama sayangg🤍';
+  animateBox();
+}
+
+function showMessage2(){
+  msg.style.display='block';
+  msg.innerHTML='Kalau mau nangis tidaa apaa apaa... setelah itu bangkitt lagii oteyy??, kikyy selalu dukung sayangg🤏🏻 ✨';
+  animateBox();
+}
+
+function showMessage3(){
+  msg.style.display='block';
+  msg.innerHTML='🤗 Peluk virtual terkirim... semoga hangat sampai ke hati sayangg yaa ehee🤏🏻';
+  animateBox();
+}
+
+function showMessage4(){
+  msg.style.display='block';
+  msg.innerHTML='kikyu juga rindu sayangg lebih banyak dari yang bisa dijelaskan kata-kata 🤏🏻🤍';
+  animateBox();
+}
+
+function createHeart(){
+  const heart = document.createElement('div');
+  heart.classList.add('heart');
+  heart.innerHTML='❤️';
+  heart.style.left=Math.random()*100+'vw';
+  heart.style.animationDuration=(Math.random()*3+2)+'s';
+  document.body.appendChild(heart);
+
+  setTimeout(()=>{
+    heart.remove();
+  },5000);
+}
+
+setInterval(createHeart,400);
+</script></body>
+</html>
